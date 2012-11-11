@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 orig_dir=$(pwd)
-work_dir=/tmp1
+work_dir=/tmp
 patch_dir=$work_dir/node-v0.8.14/deps/v8/
 patch_file=$work_dir/node-v0.8.14/deps/v8/SConstruct.patch
 cd $work_dir
