@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 orig_dir=$(pwd)
 work_dir=/tmp
-patch_dir=$work_dir/node-v0.10.13/deps/v8/
-patch_file=$work_dir/node-v0.10.13/deps/v8/SConstruct.patch
+patch_dir=$work_dir/node-v0.10.20/deps/v8/
+patch_file=$work_dir/node-v0.10.20/deps/v8/SConstruct.patch
 cd $work_dir
-wget -O - http://nodejs.org/dist/v0.10.13/node-v0.10.13.tar.gz|tar xz
-echo "--- SConstruct	2013-07-09 16:32:22.000000000 -0400	
-+++ ../../../node-v0.10.13-custom/deps/v8/SConstruct	2013-07-09 16:32:22.000000000 -0400
+wget -O - http://nodejs.org/dist/v0.10.20/node-v0.10.20.tar.gz|tar xz
+echo "--- SConstruct	2013-09-30 16:52:48.000000000 -0400	
++++ ../../../node-v0.10.20-custom/deps/v8/SConstruct	2013-09-30 16:52:48.000000000 -0400
 @@ -80,7 +80,7 @@
    },
    'gcc': {
