@@ -1,12 +1,20 @@
 #!/usr/bin/env bash
+if [ $# -lt 1 ]; then
+	echo "Usage: $0 version"
+fi
+version=$1
 orig_dir=$(pwd)
 work_dir=/tmp
-patch_dir=$work_dir/node-v0.10.20/deps/v8/
-patch_file=$work_dir/node-v0.10.20/deps/v8/SConstruct.patch
+patch_dir=$work_dir/node-v$version/deps/v8/
+patch_file=$work_dir/node-v$version/deps/v8/SConstruct.patch
 cd $work_dir
-wget -O - http://nodejs.org/dist/v0.10.20/node-v0.10.20.tar.gz|tar xz
+wget -O - http://nodejs.org/dist/v$version/node-v$version.tar.gz|tar xz
+if [ $? -ne 0 ]; then
+	echo "Something wrong fetching/decompressing node-v$version.tar.gz"
+	exit 0
+fi
 echo "--- SConstruct	2013-09-30 16:52:48.000000000 -0400	
-+++ ../../../node-v0.10.20-custom/deps/v8/SConstruct	2013-09-30 16:52:48.000000000 -0400
++++ ../../../node-v$version-custom/deps/v8/SConstruct	2013-09-30 16:52:48.000000000 -0400
 @@ -80,7 +80,7 @@
    },
    'gcc': {
