@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 if [ $# -lt 1 ]; then
 	echo "Usage: $0 version"
+	exit 1
 fi
 version=$1
 orig_dir=$(pwd)
